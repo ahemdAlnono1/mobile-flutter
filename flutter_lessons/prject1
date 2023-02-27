@@ -1,0 +1,312 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Home(),
+  ));
+}
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var chars = [
+    "C741.",
+    "X8520",
+    "/963%",
+    "x-+=D",
+  ];
+  var operation = [[]];
+  var ope = "+";
+  double res = 0;
+  var index = 0;
+  var num1 = 0;
+  double pre = 0;
+  double post = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("calculator"),
+          centerTitle: true,
+          shadowColor: Colors.blueAccent,
+          backgroundColor: Colors.blue,
+        ),
+        body: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    for (int n = 0; n < operation.length; n++)
+                      for (int t = 0; t < operation[n].length; t++)
+                        Text(operation[n] != [] ? operation[n][t] : "",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold,
+                            )),
+                  ],
+                ),
+                Container(
+                    child: Text("$res",
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        ))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    for (int i = 0; i < chars.length; i++)
+                      Column(
+                        children: [
+                          for (int j = 0; j < chars[i].length; j++)
+                            Container(
+                              padding: EdgeInsets.all(1.0),
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size(20.0, 20.0),
+                                  maximumSize: Size(190.0, 190.0),
+                                  // backgroundColor: Colors.blueAccent,
+                                ),
+                                onPressed: () {
+                                  switch (chars[i][j]) {
+                                    case '+':
+                                      if (num1 != 0) {
+                                        setState(() {
+                                          operation.add(["+"]);
+                                        });
+                                        operation.add([]);
+                                        index += 2;
+                                        pre = double.parse(operation[0].join());
+                                        setState(() {
+                                          res = pre;
+                                        });
+                                        ope = "+";
+                                      }
+                                      break;
+                                    case "-":
+                                      if (num1 != 0) {
+                                        setState(() {
+                                          operation.add(["-"]);
+                                        });
+                                        index += 2;
+                                        operation.add([]);
+                                        pre = double.parse(operation[0].join());
+                                        setState(() {
+                                          res = pre;
+                                        });
+                                        ope = "-";
+                                      }
+                                      break;
+                                    case "x":
+                                      if (num1 != 0) {
+                                        setState(() {
+                                          operation.add(["x"]);
+                                        });
+                                        operation.add([]);
+                                        index += 2;
+                                        pre = double.parse(operation[0].join());
+                                        setState(() {
+                                          res = pre;
+                                        });
+                                        ope = "x";
+                                      }
+                                      break;
+                                    case "/":
+                                      if (num1 != 0) {
+                                        setState(() {
+                                          operation.add(["/"]);
+                                        });
+                                        operation.add([]);
+                                        index += 2;
+                                        pre = double.parse(operation[0].join());
+                                        setState(() {
+                                          res = pre;
+                                        });
+                                        ope = "/";
+                                      }
+                                      break;
+                                    case "%":
+                                      if (num1 != 0) {
+                                        setState(() {
+                                          operation.add(["%"]);
+                                        });
+                                        operation.add([]);
+                                        index += 2;
+                                        pre = double.parse(operation[0].join());
+                                        setState(() {
+                                          res = pre;
+                                        });
+                                        ope = '%';
+                                      }
+                                      break;
+                                    case "1":
+                                      setState(
+                                        () {
+                                          operation[index].add("1");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "2":
+                                      setState(
+                                        () {
+                                          operation[index].add("2");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "3":
+                                      setState(
+                                        () {
+                                          operation[index].add("3");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "4":
+                                      setState(
+                                        () {
+                                          operation[index].add("4");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "5":
+                                      setState(
+                                        () {
+                                          operation[index].add("5");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "6":
+                                      setState(
+                                        () {
+                                          operation[index].add("6");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "7":
+                                      setState(
+                                        () {
+                                          operation[index].add("7");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "8":
+                                      setState(
+                                        () {
+                                          operation[index].add("8");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "9":
+                                      setState(
+                                        () {
+                                          operation[index].add("9");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "0":
+                                      setState(
+                                        () {
+                                          operation[index].add("0");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case ".":
+                                      setState(
+                                        () {
+                                          operation[index].add(".");
+                                        },
+                                      );
+                                      num1++;
+                                      break;
+                                    case "D":
+                                      setState(() {
+                                        if (operation[i].length == 1) {
+                                          operation.remove(operation[i]);
+                                        } else {
+                                          operation[i].remove(operation[i]
+                                              [operation[i].length - 1]);
+                                        }
+                                      });
+                                      break;
+                                    case "X":
+                                      setState(() {
+                                        if (operation[i].length == 1) {
+                                          operation.remove(operation[i]);
+                                        } else {
+                                          operation[i].remove(operation[i]
+                                              [operation[i].length - 1]);
+                                        }
+                                      });
+                                      break;
+                                    case "C":
+                                      operation = [[]];
+                                      break;
+                                    case "=":
+                                      post = double.parse(operation[2].join());
+                                      switch (ope) {
+                                        case "+":
+                                          setState(() {
+                                            res += post;
+                                          });
+                                          break;
+                                        case "-":
+                                          setState(() {
+                                            res -= post;
+                                          });
+                                          break;
+                                        case "*":
+                                          setState(() {
+                                            res *= post;
+                                          });
+                                          break;
+                                        case "/":
+                                          setState(() {
+                                            res /= post;
+                                          });
+                                          break;
+                                        case "%":
+                                          setState(() {
+                                            res %= post;
+                                          });
+                                          break;
+                                      }
+                                      index = 0;
+                                      operation = [[]];
+                                      break;
+                                  }
+                                },
+                                child: Text(chars[i][j],
+                                    style: const TextStyle(
+                                      color: Colors.amber,
+                                      fontSize: 30.0,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                              ),
+                            ),
+                        ],
+                      )
+                  ],
+                ),
+              ],
+            )));
+  }
+}
+

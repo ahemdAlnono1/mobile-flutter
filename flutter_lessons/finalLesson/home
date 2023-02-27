@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    Object? data = ModalRoute.of(context)?.settings.arguments;
+    // ignore: avoid_print
+    print(data);
+    return Scaffold(
+        body: SafeArea(
+            child: Padding(
+      padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
+      child: Column(
+        children: [
+          TextButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, "/location");
+              },
+              icon: const Icon(Icons.edit_location),
+              label: const Text("update time")),
+          const SizedBox(
+            height: 20.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 120.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(data is Map ? data['location'] : 'Unknown location',
+                    style: const TextStyle(
+                      color: Colors.amber,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                    )),
+              ],
+            ),
+          ),
+          Text(data is Map ? data['time'] : 'Unknown location',
+              style: const TextStyle(
+                color: Colors.amber,
+                fontSize: 66.0,
+                letterSpacing: 3.0,
+              )),
+        ],
+      ),
+    )));
+  }
+}
+

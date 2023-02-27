@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+class ChoseLocation extends StatefulWidget {
+  const ChoseLocation({super.key});
+
+  @override
+  State<ChoseLocation> createState() => _ChoseLocationState();
+}
+
+class _ChoseLocationState extends State<ChoseLocation> {
+  void getData() async {
+    await Future.delayed(const Duration(seconds: 3), () {
+      print("fitst delay line ");
+    });
+
+    print("statment");
+
+    await Future.delayed(const Duration(seconds: 3), () {
+    
+      print("second delay line");
+    });
+  }
+
+  @override
+  void initState() {
+    // this function run just one time
+    super.initState();
+    getData();
+    print("finish the code");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // build function run all time that i use
+    // setState() function
+    print("build function ran");
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue[900],
+          title: Text("chose loaction"),
+          centerTitle: true,
+        ),
+        body: SafeArea(
+          child: Container(
+              padding: const EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(10.0),
+              child: const Text("Home page in routing",
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ))),
+        ));
+  }
+}
+

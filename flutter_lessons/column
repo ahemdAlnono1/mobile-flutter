@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Home(),
+  ));
+}
+
+class Home extends StatelessWidget {
+  @override // to build my own function
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("my first app"),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 100, 246, 234),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Row(
+            children: [
+              Text("Row in the column"),
+            ],
+          ),
+          Row(
+            children: [
+              Text("anothe row in the column"),
+            ],
+          ),
+          Text("test"),
+          Text("the code work"),
+          TextButton(
+              onPressed: () => print("hello"),
+              child: Text("click"),
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.deepPurpleAccent),
+              )),
+          Container(
+            child: Text("the code work"),
+            color: Colors.blue,
+            padding: EdgeInsets.all(20.0),
+          ),
+          Container(
+            child: Text("the code work"),
+            color: Colors.amberAccent,
+            padding: EdgeInsets.all(30.0),
+          ),
+          Container(
+            child: Text("the code work"),
+            color: Colors.redAccent,
+            padding: EdgeInsets.all(40.0),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: (Center(
+          child: Text("click me",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+              )),
+        )),
+        backgroundColor: Colors.blue[150],
+      ),
+    );
+  }
+}
+

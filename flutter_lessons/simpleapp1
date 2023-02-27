@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Home(),
+  ));
+}
+
+// ignore: use_key_in_widget_constructors
+class Home extends StatelessWidget {
+  @override // to build my own function
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 62, 65, 65),
+        appBar: AppBar(
+          title: const Text("my first app"),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 46, 48, 48),
+          elevation: 0.0,
+        ),
+        body: Padding(
+            padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Center(
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/deskTop.png'),
+                    radius: 40.0,
+                  ),
+                ),
+                const Divider(
+                    height: 60.0, color: Color.fromARGB(255, 81, 81, 90)),
+                const Text("Name"),
+                const Text("Ahmed",
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.amberAccent,
+                      letterSpacing: 2.0,
+                    )),
+                // SizeBox() to make size between the lines
+                Container(
+                    margin: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(5.0, 0, 0, 10.0),
+                    child: const Text("current flutter level")),
+                const Text("7.9",
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.amberAccent,
+                      letterSpacing: 2.0,
+                    )),
+                Container(
+                    padding: const EdgeInsets.fromLTRB(10.0, 30.0, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+                    child: Row(
+                      children: const [
+                        Icon(
+                          Icons.mail,
+                          color: Colors.blueAccent,
+                        ),
+                        Text("ahmed.alnono.work@gmail.com"),
+                      ],
+                    ))
+              ],
+            )));
+  }
+}

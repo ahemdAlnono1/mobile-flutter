@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Home(),
+  ));
+}
+
+class Home extends StatelessWidget {
+  @override // to build my own function
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("my first app"),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 100, 246, 234),
+      ),
+      body: Center(
+          child: IconButton(
+        onPressed: () {
+          print("you click the button");
+        },
+        icon: Icon(Icons.mail_lock),
+        color: Colors.amberAccent,
+      )
+          //     child: TextButton.icon(
+          //   onPressed: () => print("you click me"),
+          //   icon: Icon(Icons.mail),
+          //   label: Text("click"),
+          // )
+          // child: ElevatedButton(
+          //   style: ElevatedButton.styleFrom(
+          //       disabledForegroundColor:
+          //           Color.fromARGB(255, 247, 42, 27).withOpacity(0.38),
+          //       disabledBackgroundColor:
+          //           Color.fromARGB(255, 36, 53, 52).withOpacity(0.12)),
+          //   onPressed: () => {print("you click me")},
+          //   child: Text('ElevatedButton'),
+          // ),
+          // child: Text(
+          //   "hello   word",
+          //   style: TextStyle(
+          //       fontSize: 20.0,
+          //       fontWeight: FontWeight.bold,
+          //       letterSpacing: 2.0,
+          //       color: Colors.grey[700],
+          //       fontFamily: 'Calligraffitti'),
+          // ),
+          // child: Image.asset("assets/deskTop.png")
+          ),
+      bottomNavigationBar: BottomAppBar(
+        child: Icon(Icons.abc_rounded, color: Colors.amber, size: 70.0),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: (Center(
+          child: Text("click me",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20.0,
+              )),
+        )),
+        backgroundColor: Colors.blue[150],
+      ),
+    );
+  }
+}

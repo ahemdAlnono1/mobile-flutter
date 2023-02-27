@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'quote.dart';
+
+class QuoteCard extends StatelessWidget {
+  final Quote quote;
+  final Function delete;
+  QuoteCard({super.key, required this.quote, required this.delete});
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        color: Colors.lightGreenAccent,
+        margin: const EdgeInsets.all(9.0),
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.cyan,
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              padding: const EdgeInsets.all(12.0),
+              child: Text(quote.text,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.cyan,
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              padding: const EdgeInsets.all(12.0),
+              child: Text(quote.auther,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            TextButton.icon(
+              onPressed: () => delete(),
+              icon: const Icon(Icons.delete),
+              label: const Text("Delte"),
+            )
+          ],
+        ));
+  }
+}
+

@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'qouteCard.dart';
+
+void main() {
+  runApp(const MaterialApp(
+    home: QouteList(),
+  ));
+}
+
+class QouteList extends StatefulWidget {
+  const QouteList({super.key});
+  @override
+  State<QouteList> createState() => _QouteListState();
+}
+
+class _QouteListState extends State<QouteList> {
+  List<Quote> quotes = [
+    Quote(text: "dont let the life change you", auther: "ahmed"),
+    Quote(text: "dont leave your site untile you go up", auther: "ahmed"),
+    Quote(text: "dont listen to any one just to useful one", auther: "alnono"),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: const Text("my lesson App"),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          for (int i = 0; i < quotes.length; i++)
+            QuoteCard(
+                quote: quotes[i],
+                delete: () {
+                  setState(() {
+                    quotes.remove(quotes[i]);
+                  });
+                }),
+        ],
+      ),
+    );
+  }
+}
+
